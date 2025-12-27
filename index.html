@@ -2,14 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <title>Hossain Hridoy | Animation YouTuber & Digital Creator</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hossain Hridoy is an animation YouTuber, digital creator, and founder of Lembux Group from Bangladesh.">
+<meta name="description" content="Hossain Hridoy is an Animation YouTuber, Digital Creator, and Founder of Lembux Group from Bangladesh.">
 <meta name="keywords" content="Hossain Hridoy, Hridoy, হৃদয়, Animation YouTuber, Digital Creator, Lembux Group">
 <meta name="author" content="Hossain Hridoy">
 
-<!-- AI / Google Person Schema -->
+<!-- Open Graph (Facebook, WhatsApp, Telegram) -->
+<meta property="og:title" content="Hossain Hridoy | Animation YouTuber">
+<meta property="og:description" content="Animation YouTuber, Digital Creator & Founder of Lembux Group from Bangladesh.">
+<meta property="og:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
+<meta property="og:url" content="https://hossainhridoy.vercel.app">
+<meta property="og:type" content="profile">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hossain Hridoy">
+<meta name="twitter:description" content="Animation YouTuber & Digital Creator">
+<meta name="twitter:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
+
+<!-- Google / AI Person Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,8 +31,8 @@
   "name": "Hossain Hridoy",
   "alternateName": ["Hridoy", "হৃদয়"],
   "description": "Animation YouTuber, Digital Creator, Founder of Lembux Group",
-  "url": "https://hossainhridoy.vercel.app",
   "image": "https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg",
+  "url": "https://hossainhridoy.vercel.app",
   "sameAs": [
     "https://lembux.pages.dev"
   ]
@@ -27,69 +41,71 @@
 
 <style>
 :root{
-  --lemon:#baff00;
-  --green:#17bb86;
-  --dark:#041b11;
-  --card:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.18);
+  --lemon:#c8ff00;
+  --green:#19c37d;
+  --dark:#06140f;
+  --card:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.15);
   --text:#ecfdf5;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
   background:
-    radial-gradient(circle at top, #0b3d24, #041b11);
+    radial-gradient(circle at top,#0b3d24,#06140f 70%);
   color:var(--text);
+  line-height:1.6;
 }
 
-/* LAYOUT */
-.wrapper{
-  max-width:1000px;
+/* CONTAINER */
+.container{
+  max-width:1100px;
   margin:auto;
-  padding:50px 18px;
+  padding:60px 18px;
 }
 
-/* PROFILE TOP */
-.profile{
+/* HERO */
+.hero{
   text-align:center;
-  margin-bottom:50px;
-  animation:fadeDown 1s ease;
+  margin-bottom:70px;
+  animation:heroIn 1.2s ease;
 }
-.profile img{
-  width:170px;
-  height:170px;
+.hero img{
+  width:180px;
+  height:180px;
   border-radius:50%;
   object-fit:cover;
   border:4px solid var(--lemon);
-  box-shadow:0 0 50px rgba(186,255,0,.5);
+  box-shadow:0 0 60px rgba(200,255,0,.6);
 }
-.profile h1{
-  margin:18px 0 6px;
-  font-size:38px;
+.hero h1{
+  margin-top:20px;
+  font-size:clamp(30px,5vw,44px);
   background:linear-gradient(90deg,var(--lemon),var(--green));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.profile p{
-  color:#c7f9e9;
-  font-size:15px;
+.hero p{
+  margin-top:10px;
+  color:#bbf7d0;
+  font-size:clamp(14px,2.5vw,16px);
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
-  margin-bottom:45px;
+  margin-bottom:60px;
   animation:fadeUp 1s ease;
 }
 .section h2{
   font-size:22px;
   margin-bottom:15px;
-  border-left:5px solid var(--lemon);
+  border-left:4px solid var(--lemon);
   padding-left:10px;
 }
 
+/* CARD */
 .card{
   background:var(--card);
   border:1px solid var(--border);
@@ -102,51 +118,50 @@ body{
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+  gap:18px;
 }
 
 /* CONTACT */
 .contact li{
+  list-style:none;
   margin-bottom:8px;
 }
 
 /* FOOTER */
 .footer{
   text-align:center;
-  margin-top:60px;
+  margin-top:80px;
   font-size:14px;
   color:#a7f3d0;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:none;}
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:none}
 }
-@keyframes fadeDown{
-  from{opacity:0; transform:translateY(-30px);}
-  to{opacity:1; transform:none;}
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(-40px)}
+  to{opacity:1;transform:none}
 }
 
-/* MOBILE */
-@media(max-width:600px){
-  .profile h1{font-size:30px;}
-  .profile img{width:140px;height:140px;}
+/* MOBILE FIX */
+@media(max-width:480px){
+  .container{padding:40px 14px}
+  .hero img{width:140px;height:140px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-  <!-- PROFILE -->
-  <div class="profile">
+  <!-- HERO -->
+  <div class="hero">
     <img src="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg" alt="Hossain Hridoy">
     <h1>Hossain Hridoy</h1>
-    <p>
-      Animation YouTuber • Digital Creator • Founder of Lembux Group
-    </p>
+    <p>Animation YouTuber • Digital Creator • Founder of Lembux Group</p>
   </div>
 
   <!-- ABOUT -->
@@ -154,8 +169,8 @@ body{
     <h2>About</h2>
     <div class="card">
       Hossain Hridoy is a teenage animation YouTuber and digital creator from Bangladesh.
-      He focuses on animation-based storytelling and believes in simplicity,
-      consistency, and continuous learning.
+      He creates animation-based content and focuses on creative storytelling, simplicity,
+      and continuous learning.
     </div>
   </div>
 
@@ -186,7 +201,7 @@ body{
     <div class="card">
       <strong>Lembux Group</strong><br>
       A digital creative initiative focused on animation and online content.<br>
-      Website: https://lembux.pages.dev
+      https://lembux.pages.dev
     </div>
   </div>
 
