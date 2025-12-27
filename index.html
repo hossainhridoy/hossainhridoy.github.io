@@ -3,281 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossain Hridoy | Animation YouTuber & Digital Creator</title>
-
-    <meta name="description" content="Hossain Hridoy is an Animation YouTuber, Digital Creator, and Founder of Lembux Group from Bangladesh.">
-    <meta name="keywords" content="Hossain Hridoy, Hridoy, হৃদয়, Animation YouTuber, Digital Creator, Lembux Group">
-    <meta name="author" content="Hossain Hridoy">
-
-    <meta property="og:title" content="Hossain Hridoy | Animation YouTuber">
-    <meta property="og:description" content="Digital Creator & Founder of Lembux Group. Exploring the world of 2D Animation.">
+    <title>Hossain Hridoy | Founder of Lembux Group</title>
+    
+    <meta name="description" content="Official portfolio of Hossain Hridoy. Animation YouTuber, Digital Creator, and Visionary Founder of Lembux Group.">
     <meta property="og:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
-    <meta property="og:url" content="https://hossainhridoy.vercel.app">
-    <meta property="og:type" content="website">
-
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hossain Hridoy">
-    <meta name="twitter:description" content="Animation YouTuber & Digital Creator">
-    <meta name="twitter:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;500;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <style>
         :root {
-            --primary: #c8ff00; /* Lemon */
-            --secondary: #19c37d; /* Green */
-            --bg-dark: #030a08;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #e2e8f0;
-            --text-dim: #94a3b8;
+            --accent: #ccff00; /* Neon Lemon */
+            --bg: #080a09;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-p: #94a3b8;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(25, 195, 125, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(200, 255, 0, 0.08) 0%, transparent 40%);
-            color: var(--text-main);
-            line-height: 1.6;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; }
+
+        /* Background Mesh Effect */
+        .mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1a2e05 0%, transparent 50%),
+                        radial-gradient(circle at 0% 100%, #051a14 0%, transparent 40%);
+            z-index: -1;
         }
 
-        /* --- Animations --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        /* Header */
+        nav {
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
         }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); }
 
-        .reveal {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* --- Hero Section --- */
+        /* Hero */
         .hero {
+            padding: 100px 0 60px;
             text-align: center;
-            padding: 60px 0;
         }
-
-        .profile-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 25px;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 30px rgba(200, 255, 0, 0.3);
-            z-index: 2;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-top: 10px;
-            max-width: 500px;
-            margin-inline: auto;
-        }
-
-        /* --- Layout --- */
-        .section-title {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--glass-border), transparent);
-        }
-
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 30px;
+        .profile-img {
+            width: 150px; height: 150px;
+            border-radius: 40px; /* Modern Squircle */
+            transform: rotate(-3deg);
+            border: 2px solid var(--accent);
             margin-bottom: 30px;
-            transition: all 0.3s ease;
+            transition: 0.5s;
         }
+        .profile-img:hover { transform: rotate(0deg) scale(1.1); }
 
-        .card:hover {
-            border-color: rgba(200, 255, 0, 0.3);
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
+        .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 1; margin-bottom: 20px; }
+        .hero p { color: var(--text-p); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
-        /* --- Skills Grid --- */
-        .skills-grid {
+        /* Bento Grid */
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(150px, auto);
+            gap: 20px;
+            margin-bottom: 80px;
         }
 
-        .skill-tag {
-            background: rgba(25, 195, 125, 0.1);
-            border: 1px solid rgba(25, 195, 125, 0.2);
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .bento-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
         }
+        .bento-item:hover { border-color: var(--accent); background: rgba(255,255,255,0.07); }
 
-        /* --- Contact Links --- */
-        .contact-list {
-            list-style: none;
-        }
+        /* Specific Grid Spans */
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+        .row-2 { grid-row: span 2; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 15px;
-            margin-bottom: 12px;
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--accent); display: block; }
+        .label { color: var(--text-p); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        /* Software Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag { background: #1a1a1a; padding: 6px 15px; border-radius: 50px; font-size: 0.85rem; border: 1px solid var(--border); }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--accent);
+            color: black;
             text-decoration: none;
-            color: var(--text-main);
-            transition: 0.2s;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: 0.3s;
         }
-
-        .contact-item:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-            font-weight: 600;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 60px 0;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(204, 255, 0, 0.4); }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            .container { padding: 20px 15px; }
-            .hero h1 { font-size: 2.2rem; }
-            .card { padding: 20px; }
+        @media (max-width: 850px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .span-3 { grid-column: span 2; }
         }
+        @media (max-width: 500px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-2, .span-3 { grid-column: span 1; }
+        }
+
+        /* Animations */
+        [data-aos] { opacity: 0; transform: translateY(30px); transition: 1s; }
+        .show { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="mesh"></div>
 
-    <header class="hero reveal">
-        <div class="profile-wrapper">
-            <img src="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg" alt="Hossain Hridoy">
-        </div>
-        <h1>Hossain Hridoy</h1>
-        <p>Animation YouTuber • Digital Creator • Founder of Lembux Group</p>
+<div class="container">
+    <nav>
+        <div class="logo">HRIDOY.</div>
+        <div style="font-size: 0.9rem; color: var(--text-p);">Founder @ Lembux</div>
+    </nav>
+
+    <header class="hero">
+        <img src="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg" alt="Hossain Hridoy" class="profile-img">
+        <h1 data-aos>Crafting Stories <br><span style="color: var(--accent);">Through Motion.</span></h1>
+        <p data-aos>আমি হোসেন হৃদয়, একজন এনিমেশন ইউটিউবার এবং লেম্বাক্স গ্রুপের প্রতিষ্ঠাতা। মোবাইল এনিমেশনের মাধ্যমে গল্প বলতে ভালোবাসি।</p>
+        <a href="#contact" class="btn">Let's Collaborate</a>
     </header>
 
-    <section class="reveal" style="animation-delay: 0.2s;">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-            Hossain Hridoy is a visionary teenage animation YouTuber and digital creator from Bangladesh. 
-            He specializes in creative storytelling through mobile-based 2D animation, 
-            driving the digital frontier with <strong>Lembux Group</strong>.
+    <div class="bento-grid">
+        <div class="bento-item span-2 row-2">
+            <span class="label">Biography</span>
+            <h2 style="margin-top:15px">A Creative Soul from Bangladesh</h2>
+            <p style="color: var(--text-p); margin-top: 15px;">
+                আমার যাত্রা শুরু হয় সৃজনশীল কিছু করার নেশা থেকে। বর্তমানে আমি ১০ম শ্রেণীতে (২০২৬ ব্যাচ) পড়ছি, কিন্তু আমার ধ্যান-জ্ঞান জুড়ে থাকে এনিমেশন। 
+                আমি বিশ্বাস করি, দামী পিসি নয়, সৃজনশীল মন থাকলে মোবাইল দিয়েই বিশ্বমানের কাজ করা সম্ভব।
+            </p>
         </div>
-    </section>
 
-    <section class="reveal" style="animation-delay: 0.3s;">
-        <h2 class="section-title">Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">2D Animation</div>
-            <div class="skill-tag">Video Editing</div>
-            <div class="skill-tag">Storytelling</div>
-            <div class="skill-tag">Content Strategy</div>
-            <div class="skill-tag">Web Knowledge</div>
+        <div class="bento-item">
+            <span class="stat-num">03+</span>
+            <span class="label">Years of Creation</span>
         </div>
-    </section>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;" class="reveal">
-        <section>
-            <h2 class="section-title">Education</h2>
-            <div class="card">
-                <h3 style="color: var(--primary);">Class 10</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Batch of 2026</p>
-                <p style="margin-top: 10px;">Mogorkhal Ideal School</p>
-            </div>
-        </section>
+        <div class="bento-item">
+            <span class="stat-num">50+</span>
+            <span class="label">Animations Made</span>
+        </div>
 
-        <section>
-            <h2 class="section-title">Main Project</h2>
-            <div class="card">
-                <h3 style="color: var(--secondary);">Lembux Group</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Founder & Lead Creator</p>
-                <a href="https://lembux.pages.dev" target="_blank" style="color: var(--primary); text-decoration: none; display: block; margin-top: 10px; font-size: 0.9rem;">Visit Website ↗</a>
+        <div class="bento-item span-2">
+            <span class="label">Expertise</span>
+            <div class="tags">
+                <div class="tag">2D Animation</div>
+                <div class="tag">Storyboarding</div>
+                <div class="tag">Voice Over Editing</div>
+                <div class="tag">Digital Marketing</div>
+                <div class="tag">Web UI Design</div>
             </div>
-        </section>
+        </div>
+
+        <div class="bento-item span-2">
+            <span class="label">Tools I Use</span>
+            <div class="tags">
+                <div class="tag">Alight Motion</div>
+                <div class="tag">CapCut</div>
+                <div class="tag">Ibis Paint X</div>
+                <div class="tag">FlipaClip</div>
+            </div>
+        </div>
+
+        <div class="bento-item span-3">
+            <span class="label">Our Mission</span>
+            <h3 style="margin-top:10px">Founder of Lembux Group</h3>
+            <p style="color: var(--text-p); margin-top: 10px;">
+                লেম্বাক্স গ্রুপ একটি ডিজিটাল ক্রিয়েটিভ প্ল্যাটফর্ম। আমাদের লক্ষ্য হলো বাংলাদেশের তরুণদের জন্য এমন একটি স্পেস তৈরি করা যেখানে তারা এনিমেশন এবং ডিজিটাল কনটেন্ট ক্রিয়েশনের মাধ্যমে নিজেদের দক্ষ করে গড়ে তুলতে পারে।
+            </p>
+        </div>
+
+        <div class="bento-item">
+            <span class="label">Education</span>
+            <p style="margin-top:10px; font-weight: 600;">Mogorkhal Ideal School</p>
+            <p style="font-size: 0.8rem; color: var(--text-p);">Current: Class 10 (2026)</p>
+        </div>
     </div>
 
-    <section class="reveal" style="animation-delay: 0.4s; margin-top: 30px;">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="card">
-            <div class="contact-list">
-                <a href="mailto:hossain.hridoy@hotmail.com" class="contact-item">
-                    <span>Email: hossain.hridoy@hotmail.com</span>
-                </a>
-                <a href="https://t.me/01953561473" class="contact-item">
-                    <span>Telegram: +880 1953561473</span>
-                </a>
-                <div class="contact-item" style="cursor: default;">
-                    <span>Imo: 01953561473</span>
-                </div>
+    <section id="contact" style="margin-bottom: 100px;">
+        <h2 style="text-align: center; margin-bottom: 40px;">Let's Connect</h2>
+        <div class="bento-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="bento-item" style="text-align:center">
+                <span class="label">Telegram</span>
+                <p style="margin-top:10px">@hossainhridoy</p>
+            </div>
+            <div class="bento-item" style="text-align:center">
+                <span class="label">Email</span>
+                <p style="margin-top:10px; font-size: 0.8rem;">hossain.hridoy@hotmail.com</p>
+            </div>
+            <div class="bento-item" style="text-align:center">
+                <span class="label">Official Website</span>
+                <p style="margin-top:10px">lembux.pages.dev</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>© 2025-2026 Hossain Hridoy. Built with Passion.</p>
+    <footer style="text-align:center; padding-bottom: 50px; color: var(--text-p); font-size: 0.8rem;">
+        <p>© 2025 Hossain Hridoy. All rights reserved.</p>
     </footer>
-
 </div>
+
+<script>
+    // Simple Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-aos]').forEach((el) => observer.observe(el));
+</script>
 
 </body>
 </html>
