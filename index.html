@@ -1,440 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossain Hridoy | Animation YouTuber & Digital Creator</title>
+    <title>Hossain Hridoy | Animation YouTuber & Developer</title>
 
-    <meta name="description" content="Hossain Hridoy is an Animation YouTuber, Digital Creator, Developer, and Founder of Lembux Group from Bangladesh.">
-    <meta name="keywords" content="Hossain Hridoy, Hridoy, হৃদয়, Animation YouTuber, Digital Creator, Lembux Group, IPTV Player, Web Developer">
-    <meta name="author" content="Hossain Hridoy">
-
-    <meta property="og:title" content="Hossain Hridoy | Animation YouTuber">
-    <meta property="og:description" content="Digital Creator, Developer & Founder of Lembux Group. Exploring the world of 2D Animation and Web Development.">
-    <meta property="og:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
-    <meta property="og:url" content="https://hossainhridoy.vercel.app">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hossain Hridoy">
-    <meta name="twitter:description" content="Animation YouTuber, Digital Creator & Developer">
-    <meta name="twitter:image" content="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="description" content="Hossain Hridoy - Animation YouTuber, Developer, and Founder of Lembux Group.">
+    <meta name="keywords" content="Hossain Hridoy, Lembux Group, Animation, Developer, Bangladesh">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         :root {
             --primary: #c8ff00; /* Lemon */
             --secondary: #19c37d; /* Green */
-            --bg-dark: #030a08;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #e2e8f0;
+            --accent: #ff6b6b; 
+            --bg-dark: #050a09;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --accent: #ff6b6b; /* New accent color for highlights */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(25, 195, 125, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(200, 255, 0, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
             color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1100px; /* Increased width for better layout */
-            margin: 0 auto;
-            padding: 40px 20px;
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+
+        /* Background Glows */
+        .blob {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(var(--primary), transparent 70%);
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        /* --- Animations --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .reveal {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* --- Navigation --- */
+        /* Navigation */
         nav {
-            position: sticky;
+            position: fixed;
             top: 0;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 15px 0;
-            z-index: 10;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 10, 9, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav ul {
             display: flex;
-            justify-content: center;
             list-style: none;
-            gap: 30px;
+            gap: 20px;
         }
 
         nav a {
-            color: var(--text-main);
+            color: var(--text-dim);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
-        nav a:hover {
+        nav a:hover { color: var(--primary); }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
             color: var(--primary);
+            text-decoration: none;
         }
 
-        /* --- Hero Section --- */
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 80px 0; }
+
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 0; /* Increased padding */
+            padding-top: 150px;
+            padding-bottom: 50px;
         }
 
         .profile-wrapper {
             position: relative;
-            display: inline-block;
-            margin-bottom: 25px;
-            animation: float 4s ease-in-out infinite;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
         }
 
         .hero img {
-            width: 180px; /* Slightly larger profile pic */
-            height: 180px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
+            border: 3px solid var(--primary);
+            padding: 5px;
             object-fit: cover;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 40px rgba(200, 255, 0, 0.4); /* Enhanced shadow */
-            z-index: 2;
-            position: relative;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 8vw, 4rem);
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            margin-bottom: 20px;
         }
 
         .hero p {
             color: var(--text-dim);
-            font-size: 1.2rem;
-            margin-top: 15px;
             max-width: 600px;
-            margin-inline: auto;
+            margin: 0 auto;
+            font-size: 1.1rem;
         }
 
-        /* --- Layout --- */
-        .section-title {
-            font-size: 1.4rem; /* Larger title */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--glass-border), transparent);
-        }
-
+        /* Cards & Components */
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: 24px;
-            padding: 35px; /* Increased padding */
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
+            padding: 30px;
+            transition: var(--transition);
+            height: 100%;
         }
 
         .card:hover {
-            border-color: rgba(200, 255, 0, 0.3);
-            transform: translateY(-5px) scale(1.02); /* Added scale on hover */
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
         }
 
-        /* --- Skills Grid --- */
-        .skills-grid {
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span { color: var(--primary); }
+
+        /* Expertise Grid */
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px; /* Increased gap */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
         }
 
         .skill-tag {
-            background: rgba(25, 195, 125, 0.1);
-            border: 1px solid rgba(25, 195, 125, 0.2);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             padding: 15px;
-            border-radius: 16px; /* Softer corners */
+            border-radius: 15px;
             text-align: center;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: transform 0.3s;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .skill-tag:hover {
-            transform: scale(1.1);
-            background: rgba(25, 195, 125, 0.2);
-        }
-
-        /* --- Portfolio Grid --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .portfolio-item {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .portfolio-item:hover {
             background: var(--primary);
             color: var(--bg-dark);
+            font-weight: 600;
         }
 
-        .portfolio-item i {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        /* --- Contact Links --- */
-        .contact-list {
-            list-style: none;
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .btn:hover { text-decoration: underline; }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 15px;
-            margin-bottom: 12px;
+            gap: 12px;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             text-decoration: none;
             color: var(--text-main);
-            transition: 0.2s;
-            gap: 10px; /* Added icon spacing */
+            transition: var(--transition);
         }
+
+        .contact-item i { font-size: 1.2rem; color: var(--primary); }
 
         .contact-item:hover {
             background: var(--primary);
             color: var(--bg-dark);
-            font-weight: 600;
-            animation: pulse 0.5s;
         }
 
-        /* --- Achievements --- */
-        .achievements-list {
-            list-style: none;
-            display: grid;
-            gap: 15px;
+        .contact-item:hover i { color: var(--bg-dark); }
+
+        /* Achievements */
+        .achievement-list { list-style: none; }
+        .achievement-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .achievement-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
         }
 
-        .achievement-item {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-        }
-
-        /* --- Footer --- */
-        .footer {
+        /* Footer */
+        footer {
             text-align: center;
-            padding: 60px 0;
+            padding: 50px 0;
+            border-top: 1px solid var(--border);
             color: var(--text-dim);
             font-size: 0.9rem;
-            border-top: 1px solid var(--glass-border);
         }
 
-        .footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container { padding: 20px 15px; }
-            .hero h1 { font-size: 2.2rem; }
-            .card { padding: 20px; }
-            nav ul { flex-direction: column; gap: 15px; }
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Mobile menu can be added later with JS */
+            .hero h1 { font-size: 2.8rem; }
+            section { padding: 60px 0; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="blob" style="top: 10%; left: 5%;"></div>
+    <div class="blob" style="bottom: 20%; right: 5%; background: var(--secondary);"></div>
 
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#expertise">Expertise</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="container">
+            <a href="#" class="logo">HRIDOY.</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <header class="hero reveal">
-        <div class="profile-wrapper">
-            <img src="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg" alt="Hossain Hridoy">
-        </div>
-        <h1>Hossain Hridoy</h1>
-        <p>Animation YouTuber • Digital Creator • Web Developer • Founder of Lembux Group</p>
-    </header>
+    <div class="container">
+        <header class="hero">
+            <div class="profile-wrapper">
+                <img src="https://i.ibb.co.com/dsnwchs0/In-Shot-20251225-112329227.jpg" alt="Hossain Hridoy">
+            </div>
+            <h1>Hossain Hridoy</h1>
+            <p>Animation YouTuber • Digital Creator • Web Developer • Founder of Lembux Group</p>
+        </header>
 
-    <section id="about" class="reveal" style="animation-delay: 0.2s;">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-            Hossain Hridoy is a visionary teenage animation YouTuber, digital creator, and developer from Bangladesh. 
-            He specializes in creative storytelling through mobile-based 2D animation, driving the digital frontier with <strong>Lembux Group</strong>.
-            Starting his journey in 2023, Hossain has created engaging content for kids and families, focusing on fun stories, horror cartoons, and educational animations.
-            In addition to animation, he develops web applications like IPTV players, showcasing his skills in modern web technologies.
-            Passionate about technology and creativity, Hossain aims to inspire young creators in Bangladesh and beyond.
-        </div>
-    </section>
-
-    <section id="expertise" class="reveal" style="animation-delay: 0.3s;">
-        <h2 class="section-title">Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">2D Animation</div>
-            <div class="skill-tag">Video Editing</div>
-            <div class="skill-tag">Storytelling</div>
-            <div class="skill-tag">Content Strategy</div>
-            <div class="skill-tag">Web Development (HTML, CSS, JS)</div>
-            <div class="skill-tag">App Development</div>
-            <div class="skill-tag">Graphic Design</div>
-        </div>
-    </section>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;" class="reveal">
-        <section id="education">
-            <h2 class="section-title">Education</h2>
+        <section id="about">
+            <h2 class="section-title"><span>/</span> About Me</h2>
             <div class="card">
-                <h3 style="color: var(--primary);">Class 10</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Batch of 2026</p>
-                <p style="margin-top: 10px;">Mogorkhal Ideal School, Bangladesh</p>
-                <p style="margin-top: 10px; font-size: 0.95rem;">Focusing on science and technology subjects, preparing for a career in digital creation and development.</p>
+                Hossain Hridoy is a visionary teenage animator and developer from Bangladesh. 
+                He specializes in creative storytelling through mobile-based 2D animation and modern web development. 
+                Starting his journey in 2023, he founded <strong>Lembux Group</strong> to push the boundaries of digital content. 
+                His work blends technology with creativity to inspire the next generation.
             </div>
         </section>
 
-        <section id="achievements">
-            <h2 class="section-title">Achievements</h2>
-            <div class="card">
-                <ul class="achievements-list">
-                    <li class="achievement-item">Founded Lembux Group in 2025, a hub for digital projects and animations.</li>
-                    <li class="achievement-item">Developed Hridoy IPTV Player, a privacy-focused web app with thousands of potential users.</li>
-                    <li class="achievement-item">Gained over 500 subscribers on YouTube with animation content.</li>
-                    <li class="achievement-item">Contributed to open-source projects on GitHub.</li>
-                    <li class="achievement-item">Featured in local Bangladeshi creator communities for innovative mobile animations.</li>
-                </ul>
+        <section id="expertise">
+            <h2 class="section-title"><span>/</span> Expertise</h2>
+            <div class="expertise-grid">
+                <div class="skill-tag">2D Animation</div>
+                <div class="skill-tag">Video Editing</div>
+                <div class="skill-tag">Web Development</div>
+                <div class="skill-tag">UI/UX Design</div>
+                <div class="skill-tag">Content Strategy</div>
+                <div class="skill-tag">App Dev</div>
             </div>
         </section>
-    </div>
 
-    <section id="projects" class="reveal" style="animation-delay: 0.4s; margin-top: 30px;">
-        <h2 class="section-title">Main Projects</h2>
-        <div class="portfolio-grid">
-            <div class="card portfolio-item">
-                <i class="fas fa-briefcase"></i>
-                <h3 style="color: var(--secondary);">Lembux Group</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Founder & Lead Creator</p>
-                <p>A digital collective focused on animation, web development, and content creation. Hosting multiple projects and collaborations.</p>
-                <a href="https://lembux.pages.dev" target="_blank" style="color: var(--primary); text-decoration: none; display: block; margin-top: 10px; font-size: 0.9rem;">Visit Website ↗</a>
+        <section id="projects">
+            <h2 class="section-title"><span>/</span> Main Projects</h2>
+            <div class="projects-grid">
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Lembux Group</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">Founder & Lead Creator</p>
+                    <p>একটি ডিজিটাল হাব যা অ্যানিমেশন এবং আধুনিক ওয়েব প্রযুক্তি নিয়ে কাজ করে।</p>
+                    <a href="https://lembux.pages.dev" target="_blank" class="btn">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--accent); margin-bottom: 10px;">Hridoy IPTV Player</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">Developer</p>
+                    <p>প্রাইভেসি-ফোকাসড ওয়েব আইপিটিভি প্লেয়ার, যা ইনডেক্সড-ডিবি প্রযুক্তি ব্যবহার করে তৈরি।</p>
+                    <a href="https://github.com/hossainhridoy/HridoyIPTVPlayerpub" target="_blank" class="btn">GitHub Repository <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
-            <div class="card portfolio-item">
-                <i class="fas fa-tv"></i>
-                <h3 style="color: var(--accent);">Hridoy IPTV Player</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Developer</p>
-                <p>A lightweight, privacy-focused web-based IPTV player using IndexedDB, HLS.js, and modern UI. Supports unlimited channels offline.</p>
-                <a href="https://github.com/hossainhridoy/HridoyIPTVPlayerpub" target="_blank" style="color: var(--primary); text-decoration: none; display: block; margin-top: 10px; font-size: 0.9rem;">View on GitHub ↗</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio" class="reveal" style="animation-delay: 0.5s; margin-top: 30px;">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="card">
-            <p>Check out my animation works on YouTube:</p>
-            <a href="https://www.youtube.com/channel/UCL6A3Ft9uC3dKnn_ff2G2hQ" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Hridoy Animation Channel ↗</a>
-            <p style="margin-top: 15px;">Featured Videos: Horror cartoons, kids stories, and 2D animations created with mobile tools.</p>
-        </div>
-    </section>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <section id="education">
+                <h2 class="section-title"><span>/</span> Education</h2>
+                <div class="card">
+                    <h3 style="color: var(--primary);">Class 10 (Batch 2026)</h3>
+                    <p>Mogorkhal Ideal School, Bangladesh</p>
+                    <p style="margin-top: 10px; color: var(--text-dim); font-size: 0.9rem;">সায়েন্স এবং টেকনোলজির ওপর বিশেষ ফোকাস সহ ডিজিটাল ক্রিয়েশনে ক্যারিয়ার গড়ার প্রস্তুতি।</p>
+                </div>
+            </section>
 
-    <section id="contact" class="reveal" style="animation-delay: 0.6s; margin-top: 30px;">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="card">
-            <div class="contact-list">
+            <section id="achievements">
+                <h2 class="section-title"><span>/</span> Achievements</h2>
+                <div class="card">
+                    <ul class="achievement-list">
+                        <li>Founded Lembux Group in 2025</li>
+                        <li>500+ Subscribers on YouTube</li>
+                        <li>Developed Hridoy IPTV Player</li>
+                        <li>Featured Mobile Animation Creator</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section id="contact">
+            <h2 class="section-title"><span>/</span> Get In Touch</h2>
+            <div class="contact-grid">
                 <a href="mailto:hossain.hridoy@hotmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>Email: hossain.hridoy@hotmail.com</span>
+                    <span>Email</span>
                 </a>
                 <a href="https://t.me/01953561473" class="contact-item">
                     <i class="fab fa-telegram-plane"></i>
-                    <span>Telegram: +880 1953561473</span>
+                    <span>Telegram</span>
                 </a>
-                <div class="contact-item" style="cursor: default;">
-                    <i class="fas fa-phone"></i>
-                    <span>Imo: 01953561473</span>
-                </div>
                 <a href="https://github.com/hossainhridoy" class="contact-item">
                     <i class="fab fa-github"></i>
-                    <span>GitHub: hossainhridoy</span>
+                    <span>GitHub</span>
                 </a>
                 <a href="https://www.instagram.com/hossainhrido/" class="contact-item">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram: @hossainhrido</span>
+                    <span>Instagram</span>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <p>© 2025-2026 Hossain Hridoy. Built with Passion. <a href="#top">Back to Top</a></p>
-    </footer>
-
-</div>
+        <footer>
+            <p>© 2025-2026 Hossain Hridoy. Built with ❤️ for Creativity.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
