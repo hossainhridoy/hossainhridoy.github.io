@@ -1,172 +1,220 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hossain Hridoy | Animation YouTuber</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hossain Hridoy | Animation YouTuber</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 
-    body{
-      background:#0b0f0d;
-      color:#e6f5ec;
-      line-height:1.7;
-    }
+/* BACKGROUND */
+body{
+  min-height:100vh;
+  background:linear-gradient(-45deg,#020403,#0b1f16,#020403,#00150d);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  color:#eafff3;
+  overflow-x:hidden;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-    header{
-      background:linear-gradient(135deg,#0f3d2e,#000);
-      padding:80px 20px;
-      text-align:center;
-    }
+/* PARTICLES */
+canvas{
+  position:fixed;
+  top:0;left:0;
+  z-index:-1;
+}
 
-    header h1{
-      font-size:42px;
-      font-weight:700;
-      color:#7CFFB2;
-    }
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
 
-    header p{
-      margin-top:10px;
-      font-size:18px;
-      color:#c9f5df;
-      max-width:700px;
-      margin-left:auto;
-      margin-right:auto;
-    }
+.hero h1{
+  font-size:60px;
+  font-weight:800;
+  background:linear-gradient(90deg,#00ff99,#00cc66);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    section{
-      padding:70px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
+.typing{
+  margin-top:20px;
+  font-size:22px;
+  color:#caffea;
+  min-height:32px;
+}
 
-    .card{
-      background:#0f1512;
-      border:1px solid #1e2d25;
-      border-radius:14px;
-      padding:35px;
-      margin-bottom:30px;
-      box-shadow:0 0 30px rgba(0,255,170,0.05);
-    }
+/* SECTION */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
 
-    h2{
-      color:#7CFFB2;
-      font-size:26px;
-      margin-bottom:15px;
-    }
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(0,255,150,0.2);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:40px;
+  margin-bottom:40px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s ease;
+}
 
-    p{
-      color:#d6efe4;
-      font-size:16px;
-    }
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
-    ul{
-      margin-top:15px;
-      padding-left:20px;
-    }
+.card:hover{
+  box-shadow:0 0 45px rgba(0,255,150,0.3);
+}
 
-    ul li{
-      margin-bottom:10px;
-      color:#cfeee0;
-    }
+.card h2{
+  font-size:28px;
+  color:#00ff99;
+  margin-bottom:15px;
+}
 
-    .highlight{
-      color:#7CFFB2;
-      font-weight:600;
-    }
+.card p, li{
+  font-size:17px;
+  line-height:1.8;
+}
 
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      background:#050807;
-      color:#9fdcc2;
-      font-size:14px;
-    }
+ul{padding-left:20px;margin-top:10px}
 
-    @media(max-width:768px){
-      header h1{
-        font-size:32px;
-      }
-      section{
-        padding:50px 15px;
-      }
-    }
-  </style>
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  background:#010302;
+  color:#7affc4;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:40px}
+  .typing{font-size:18px}
+}
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>Hossain Hridoy</h1>
+<canvas id="particles"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Hossain Hridoy</h1>
+  <div class="typing" id="typing"></div>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <div class="card">
+    <h2>Who I Am</h2>
     <p>
-      Animation YouTuber • Digital Creator • AI Storyteller  
-      <br>
-      বাস্তবধর্মী ও আবেগময় এনিমেশন কনটেন্ট নির্মাতা
+      আমি একজন <b>Animation YouTuber</b> ও <b>AI Story Creator</b>।
+      আমার কনটেন্ট বাস্তবধর্মী, আবেগময় এবং প্রাণীকেন্দ্রিক।
+      আমি শুধু ভিডিও বানাই না — আমি অনুভূতি তৈরি করি।
     </p>
-  </header>
+  </div>
 
-  <!-- ABOUT -->
-  <section>
-    <div class="card">
-      <h2>আমার সম্পর্কে</h2>
-      <p>
-        আমি <span class="highlight">Hossain Hridoy</span> — একজন স্বাধীন 
-        <span class="highlight">Animation YouTuber</span> এবং ডিজিটাল কনটেন্ট ক্রিয়েটর।
-        আমি মূলত বাস্তবধর্মী, আবেগময় এবং গল্পনির্ভর এনিমেশন ভিডিও তৈরি করি, 
-        যেগুলো দর্শকের অনুভূতির সাথে গভীরভাবে সংযুক্ত হয়।
-      </p>
-      <p>
-        ছোটবেলা থেকেই সৃষ্টিশীল কাজের প্রতি আমার প্রবল আগ্রহ। সময়ের সাথে সাথে 
-        সেই আগ্রহই আমাকে এনিমেশন ও AI-ভিত্তিক কনটেন্ট জগতের দিকে নিয়ে এসেছে।
-      </p>
-    </div>
+  <div class="card">
+    <h2>What I Create</h2>
+    <ul>
+      <li>🎬 Realistic AI Animation</li>
+      <li>📖 Emotional Storytelling</li>
+      <li>🐶 Animal-based Character Universe</li>
+      <li>📱 Mobile-first Production</li>
+    </ul>
+  </div>
 
-    <!-- WORK -->
-    <div class="card">
-      <h2>আমি কী করি</h2>
-      <ul>
-        <li>🎬 2D ও AI-ভিত্তিক এনিমেশন ভিডিও তৈরি</li>
-        <li>📖 আবেগময় ও বাস্তবসম্মত গল্প লেখা</li>
-        <li>🐶 প্রাণীকেন্দ্রিক চরিত্র (যেমন: Biru – The AI Dog) নির্মাণ</li>
-        <li>📱 মোবাইল-ভিত্তিক এনিমেশন ও কনটেন্ট প্রোডাকশন</li>
-      </ul>
-    </div>
+  <div class="card">
+    <h2>My Vision</h2>
+    <p>
+      আমার লক্ষ্য একটি শক্তিশালী Animation Brand তৈরি করা,
+      যা ভবিষ্যতে একটি পূর্ণাঙ্গ Animation Studio তে রূপ নেবে।
+    </p>
+  </div>
 
-    <!-- VISION -->
-    <div class="card">
-      <h2>আমার ভিশন</h2>
-      <p>
-        আমার লক্ষ্য শুধু ভিডিও বানানো নয়, বরং এমন গল্প তৈরি করা 
-        যা মানুষের মনে দাগ কাটে।  
-        ভবিষ্যতে আমি আমার নিজস্ব এনিমেশন ব্র্যান্ড ও ইউনিভার্স গড়ে তুলতে চাই,
-        যেখানে গল্প, আবেগ এবং প্রযুক্তি একসাথে কাজ করবে।
-      </p>
-    </div>
+</section>
 
-    <!-- SKILLS -->
-    <div class="card">
-      <h2>দক্ষতা</h2>
-      <ul>
-        <li>Animation Storytelling</li>
-        <li>AI Prompt & Visual Creation</li>
-        <li>Mobile Animation Workflow</li>
-        <li>Creative Direction</li>
-      </ul>
-    </div>
-  </section>
+<footer>
+© 2026 Hossain Hridoy — Animation YouTuber
+</footer>
 
-  <footer>
-    © 2026 Hossain Hridoy — All Rights Reserved
-  </footer>
+<script>
+/* TYPING EFFECT */
+const texts=[
+  "Animation YouTuber",
+  "AI Story Creator",
+  "Digital Visionary",
+  "Building an Animation Universe"
+];
+let i=0,j=0,del=false;
+const el=document.getElementById("typing");
+
+setInterval(()=>{
+  el.textContent=texts[i].substring(0,j);
+  if(!del && j++===texts[i].length+5) del=true;
+  if(del && j--===0){del=false;i=(i+1)%texts.length}
+},120);
+
+/* SCROLL REVEAL */
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+  cards.forEach(c=>{
+    const top=c.getBoundingClientRect().top;
+    if(top<window.innerHeight-100) c.classList.add("show");
+  });
+});
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let w,h,pts=[];
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
+}
+window.onresize=resize;resize();
+
+for(let i=0;i<70;i++){
+  pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1});
+}
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle="rgba(0,255,150,0.6)";
+  pts.forEach(p=>{
+    p.y-=0.3;
+    if(p.y<0)p.y=h;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
 
 </body>
 </html>
